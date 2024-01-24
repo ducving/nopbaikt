@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>
+    <a th:href="@{/products/create}">
+        add product
+    </a>
+</p>
+<p>
+<form th:action="@{/products/search}" method="get" novalidate="novalidate">
+    <input type="text" name="search">
+    <input type="submit" value="search">
+</form>
+
+</p>
+<table border="1px">
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Code</td>
+        <td>description</td>
+        <td>Price</td>
+        <td>Date</td>
+    </tr>
+    <tr th:each="row,stat :${product}">
+        <td th:text="${row.id}"></td>
+        <td th:text="${row.name}"></td>
+        <td th:text="${row.code}"></td>
+        <td th:text="${row.description}"></td>
+        <td th:text="${row.price}"></td>
+        <td th:text="${row.date}"></td>
+        <td>
+            <a th:href="@{/products/{id}/formUpdate(id=${row.id})}">update</a>
+        </td>
+        <td>
+            <a th:href="@{/products/{id}/delete(id=${row.id})}">delete</a>
+        </td>
+        <td>
+            <a th:href="@{/products/{id}/view(id=${row.id})}">views</a>
+        </td>
+    </tr>
+
+</table>
+</body>
+</html>

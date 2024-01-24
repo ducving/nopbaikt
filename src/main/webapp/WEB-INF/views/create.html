@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form th:action="@{/products/save}" method="post" novalidate="novalidate" th:object="${product}">
+    <input type="hidden" th:field="*{id}">
+    Name : <input type="text" th:field="*{name}">
+    Code : <input type="text" th:field="*{code}">
+    Description : <input type="text" th:field="*{description}">
+    Price : <input type="text" th:field="*{price}">
+    Date: <input type="text" th:field="*{date}">
+    <input type="submit" value="add">
+</form>
+
+</body>
+</html>
